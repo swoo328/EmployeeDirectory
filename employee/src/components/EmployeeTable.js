@@ -17,15 +17,16 @@ class EmployeeTable extends Component {
   //load random users as employees from the randomuser API
 
   findUsers = () => {
-    API.findUsers()
-      .then((res) => {
+    API.getUsers()
+      .then((result) => {
         this.setState({
-          employees: res.data.results,
-          filterEmployees: res.data.results
+          employees: result.data.results,
+          filterEmployees: result.data.results
         })
       }
       )
       .catch((err) => console(err));
+      console.log(this.state.employees);
   }
 
   handleInputChange = event => {
@@ -46,7 +47,6 @@ class EmployeeTable extends Component {
 
     })
   }
-
 
   handleRemove = id => {
     console.log(id);
@@ -80,6 +80,10 @@ class EmployeeTable extends Component {
         <h3>Sort By:</h3>
         <button onClick={() => this.handleSort('name', 'first', 1)}>Sort By First Name</button>
         <button onClick={() => this.handleSort('name', 'last', 1)}>Sort By Last Name</button>
+        <EmployeeTabs
+            employees={this.state.employees}
+            handleRemove={this.handleRemove}
+        />
       </div>
     )
   }
