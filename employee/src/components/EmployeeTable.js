@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import EmployeeTabs from './EmployeeTabs';
-import Search from '../Search/Search';
-import Header from '../Header/Header';
+import EmployeeTabs from './EmployeeTabs/EmployeeTabs';
+import Search from './Search/Search';
+import Header from './Header/Header';
 import API from "../utils/API";
 
 class EmployeeTable extends Component {
@@ -39,7 +39,7 @@ class EmployeeTable extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const searchVal = document.querySelector("name=search").value;
+    const searchVal = document.querySelector("[name=search]").value;
     let filtered = [...this.state.employees]
     filtered = filtered.filter(employee => employee.name.first === searchVal)
     this.setState({
@@ -61,7 +61,7 @@ class EmployeeTable extends Component {
 
     // sort 
     employeeSorted.sort((a, b) => {
-      return a[key][key2] > b[key1][key2] ? asc * 1 : asc * -1;
+      return a[key1][key2] > b[key1][key2] ? asc * 1 : asc * -1;
     });
 
     // set state
@@ -83,6 +83,7 @@ class EmployeeTable extends Component {
         <EmployeeTabs
             employees={this.state.employees}
             handleRemove={this.handleRemove}
+            handleSort={this.handleSort}
         />
       </div>
     )

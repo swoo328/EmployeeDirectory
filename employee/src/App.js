@@ -1,13 +1,12 @@
 import React from 'react';
-import Header from './components/Header/Header';
-import EmployeeTabs from './components/EmployeeTabs/EmployeeTabs';
+import EmployeeTable from './components/EmployeeTable';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <EmployeeTabs/>
+      <EmployeeTable/>
     </div>
   );
 }

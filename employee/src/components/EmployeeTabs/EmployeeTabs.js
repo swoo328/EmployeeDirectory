@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css';
 
 const EmployeeTabs = (props) => {
   console.log(props.employees)
@@ -9,11 +10,16 @@ const EmployeeTabs = (props) => {
         <div key={employee.id.value} className="card">
 
           <li className="list-group-item" >
-            <strong>Email:</strong> {employee.email}
             <div className="img-container"></div>
             <img alt={employee.name} className="img-fluid" src={employee.picture.large} />
-            <strong>Name:</strong>{employee.name.first.last}
-            <strong>Phone:</strong>{employee.phone}
+            <br></br>
+            <p><strong>{employee.name.first} {employee.name.last}</strong></p>
+          
+            <p><strong>Email: </strong> {employee.email}</p>
+      
+            <p><strong>Phone: </strong>{employee.phone}</p>
+
+            <p><strong>Location: </strong>{employee.location.city}</p>
           </li>
           <span className="remove" onClick={() => props.handleRemove(employee.id.value)}>X</span>
         </div>
