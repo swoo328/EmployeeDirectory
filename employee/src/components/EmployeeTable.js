@@ -7,7 +7,8 @@ import API from "../utils/API";
 class EmployeeTable extends Component {
   state = {
     search: "",
-    employees: []
+    employees: [],
+    filteredEmployees: []
   }
   // Search the random user API
   componentDidMount() {
@@ -21,12 +22,12 @@ class EmployeeTable extends Component {
       .then((result) => {
         this.setState({
           employees: result.data.results,
-          filterEmployees: result.data.results
+          filteredEmployees: result.data.results
         })
       }
       )
       .catch((err) => console(err));
-      console.log(this.state.employees);
+      // console.log(this.state.employees);
   }
 
   handleInputChange = event => {
@@ -41,11 +42,14 @@ class EmployeeTable extends Component {
     event.preventDefault();
     const searchVal = document.querySelector("[name=search]").value;
     let filtered = [...this.state.employees]
-    filtered = filtered.filter(employee => employee.name.first === searchVal)
+    // this only works if the first name is fully spelled out
+    filtered = filtered.filter(employees => employees.name.first.toLowerCase().indexOf(searchVal.toLowerCase()) === 0)
     this.setState({
-      employees: filtered
+      ...this.state,
+      filteredEmployees: filtered
 
     })
+    console.log(filtered);
   }
 
   handleRemove = id => {
@@ -65,8 +69,8 @@ class EmployeeTable extends Component {
     });
 
     // set state
-    this.setState({ employees: employeeSorted });
-
+    this.setState({ filteredEmployees: employeeSorted });
+    console.log(employeeSorted);
   }
   render() {
     return (
@@ -81,9 +85,9 @@ class EmployeeTable extends Component {
         <button onClick={() => this.handleSort('name', 'first', 1)}>Sort By First Name</button>
         <button onClick={() => this.handleSort('name', 'last', 1)}>Sort By Last Name</button>
         <EmployeeTabs
-            employees={this.state.employees}
-            handleRemove={this.handleRemove}
+            employees={this.state.filteredEmployees}
             handleSort={this.handleSort}
+            handleRemove={this.handleRemove}
         />
       </div>
     )

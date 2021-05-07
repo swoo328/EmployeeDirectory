@@ -7,11 +7,11 @@ const EmployeeTabs = (props) => {
   return (
     <ul className = "list-group">
       {props.employees.map(employee => (
-        <div key={employee.id.value} className="card">
+        <div key={`${employee.name.first}-${employee.name.last}`} className="card">
 
           <li className="list-group-item" >
             <div className="img-container"></div>
-            <img alt={employee.name} className="img-fluid" src={employee.picture.large} />
+            <img alt={employee.name.first} className="img-fluid" src={employee.picture.large} />
             <br></br>
             <p><strong>{employee.name.first} {employee.name.last}</strong></p>
           
