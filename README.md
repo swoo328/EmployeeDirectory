@@ -14,7 +14,7 @@ As a user, I want to be able to view my entire employee directory at once so tha
 ## [Tech Used](#tech)
 
 # Screenshot <a name = "screenshot"></a>
-![](employee/public/capture.PNG)
+![](employee/public/Capture.PNG)
 
 # Deployment <a name = "deployment"></a>
 https://swoo328.github.io/EmployeeDirectory/
