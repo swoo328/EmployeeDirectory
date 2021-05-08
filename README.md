@@ -18,6 +18,7 @@ As a user, I want to be able to view my entire employee directory at once so tha
 
 # Deployment <a name = "deployment"></a>
 https://swoo328.github.io/EmployeeDirectory/
+
 https://github.com/swoo328/EmployeeDirectory
 
 # Tech Used <a name = "Tech"></a>
