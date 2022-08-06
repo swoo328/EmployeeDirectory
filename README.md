@@ -1,8 +1,5 @@
 # Employee Directory
 
-# Description <a name="description"></a>
-As a user, I want to be able to view my entire employee directory at once so that I have quick access to their information. The user is able to sort the list of the employees by first and last name. Not only that, the user can search the user by the first letter of the first name.
-
 # Table Of Contents
 
 ## [Description](#description)
@@ -12,6 +9,9 @@ As a user, I want to be able to view my entire employee directory at once so tha
 ## [Deployment](#deployment)
 
 ## [Tech Used](#tech)
+
+# Description <a name="description"></a>
+As a user, I want to be able to view my entire employee directory at once so that I have quick access to their information. The user is able to sort the list of the employees by first and last name. Not only that, the user can search the user by the first letter of the first name.
 
 # Screenshot <a name = "screenshot"></a>
 ![](employee/public/Capture.PNG)
